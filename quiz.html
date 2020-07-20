@@ -26,10 +26,20 @@
         },
     ]
     var score = 0
+    window.onload = function() {
+        var secs = 0;
+        var id = setInterval(function(){ 
+        secs++; console.log(secs);
+      if(secs> 5){
+        clearInterval(id);
+        alert('Total Time: ' + secs + ' seconds');
+       }
+    }, 1000);
+};
 
     for(var i = 0; i < questions.length; i++) {
         var response = window.prompt(questions[i].prompt);
-        if(response == quesitons[i].answer){
+        if(response == questions[i].answer){
         score++;
         alert("Correct!");
         } else {
