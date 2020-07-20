@@ -7,6 +7,10 @@
 </head>
 <body>
     <script type="text/javascript">
+    
+    var name = prompt("Type your name below");
+
+
     var questions = [
         {
             prompt: "What is the HTML tag under which one can write JavaScript code?\n(a) <javascript>\n(b) <scripted>\n(c) <script>\n(d) <js>\n",
@@ -29,13 +33,13 @@
     window.onload = function() {
         var secs = 0;
         var id = setInterval(function(){ 
-        secs++; console.log(secs);
-      if(secs> 5){
-        clearInterval(id);
-        alert('Total Time: ' + secs + ' seconds');
-       }
-    }, 1000);
-};
+            secs++; console.log(secs);
+            if(secs> 5){
+                clearInterval(id);
+                alert('Total Time: ' + secs + ' seconds');
+            }
+        }, 1000);
+    };
 
     for(var i = 0; i < questions.length; i++) {
         var response = window.prompt(questions[i].prompt);
@@ -46,7 +50,11 @@
         alert("Wrong!");
         }
     }
-    alert("you got " + score + "/" + questions.length);
+    alert(name + score + "/" + questions.length);
+    localStorage.setItem("name", name);
+    localStorage.setItem("score", score);
+    
+  
 </script>
 </body>
 </html>
